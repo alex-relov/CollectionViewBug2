@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectionViewBug2.MainPage">
+
+    <CollectionView ItemsSource="{Binding Items}" Header="{Binding}" EmptyView="{Binding}">
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical" Span="3" />
+        </CollectionView.ItemsLayout>
+        <CollectionView.HeaderTemplate>
+            <DataTemplate>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Button BackgroundColor="Red" Text="Any text" HorizontalOptions="FillAndExpand" />
+                        <Button Text="Any tex2" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <Button BackgroundColor="Red" Text="Any tex3" HorizontalOptions="FillAndExpand" />
+                </StackLayout> 
+            </DataTemplate>
+        </CollectionView.HeaderTemplate>
+        
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Label Text="{Binding}" />
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+        <CollectionView.EmptyViewTemplate>
+            <DataTemplate>
+                <StackLayout>
+                    <Label HorizontalOptions="CenterAndExpand" Text="Empty" VerticalOptions="CenterAndExpand" />
+                </StackLayout>          
+            </DataTemplate>
+        </CollectionView.EmptyViewTemplate>
+    </CollectionView>
+
+</ContentPage>
